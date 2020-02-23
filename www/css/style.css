@@ -11,6 +11,7 @@ body{
     color: blue;
     border-radius:  15px; ;
     border: thin; 
+    margin: 4px 2px;
 }
 
 .button:active {
