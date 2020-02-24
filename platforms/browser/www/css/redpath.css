@@ -2,6 +2,7 @@ body{
     background-image: url(/www/img/gesibackground.png);
     background-size: cover;
     background-repeat: no-repeat;
+    height:100%;
 }
 
 .button {
