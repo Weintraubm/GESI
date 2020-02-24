@@ -18,6 +18,7 @@ iframe {
     border-radius:  15px; ;
     border: black thin;
     margin: 4px 2px;
+    padding: 4px 2px;;
     
   }
   .backbutton:active {
