@@ -44,7 +44,7 @@ TODO create a database to store entries locally or in a cloud.
 
         //button that creates the entry objects and displays them in the terminal.
         btnSave.onclick = function() {
-            const DateandTime = Dtime.value;
+            const Edate = Dtime.value;
             const Trigger = trigg.value;
             const Resolution = resolved.value;
             
@@ -54,7 +54,7 @@ TODO create a database to store entries locally or in a cloud.
             console.log(Resolution);
 
             // if the values exist save them in local memory.
-            if (DateandTime && Trigger && Resolution) {
+            if (Edate && Trigger && Resolution) {
                 localStorage.setItem(DateandTime,Trigger,Resolution);
                 location.reload();
             }
