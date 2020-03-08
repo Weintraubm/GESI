@@ -12,6 +12,7 @@ TODO create a database to store entries locally or in a cloud.
     <div class = "app" >
         <div>
             <fieldset>
+                <legend>New Entry</legend>
                 <label for="Date">Date and Time </label>
                 <input type="text" id="Dtime" name="Date" placeholder="Day of event...">
 
@@ -21,11 +22,53 @@ TODO create a database to store entries locally or in a cloud.
                 <label for="resolved">Resolution</label>
                 <input type="text" id="resolved" name="Resolution" placeholder="How did you overcome it...">
                 
-                <input type="submit" value="Submit">
+                <button type = "button" id=btnSave>Save Button</button>
+            </fieldset>
+            <fieldset>
+                <legend>Past Entries</legend>
+                <div id="jrnlDisp"></div>
             </fieldset>
         </div>
     </div>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
 </body>
+<!--
+    create static objects to hold the entries?
+-->
+<script type="text/javascript">
+    const Dtime = document.getElementById("Dtime");
+    const trigg = document.getElementById("trigg");
+    const resolved = document.getElementById("resolved");
+    const btnSave = document.getElementById("btnSave");
+    const jrnlDisp =doctument.getElementById("jrnlDisp");
+
+    //button that creates the entry objects and displays them in the terminal.
+    btnSave.onclick = function() {
+        const DateandTime = Dtime.value;
+        const Trigger = trigg.value;
+        const Resolution = resolved.value;
+        
+        //put that in the terminal for debug
+        console.log(DateandTime);
+        console.log(Trigger);
+        console.log(Resolution);
+
+        // if the values exist save them in local memory.
+        if (DateandTime && Trigger && Resolution) {
+            localStorage.setItem(DateandTime,Trigger,Resolution);
+            location.reload();
+        }
+    };
+    
+    //a for loop that populates, and prints the entries in local storage.
+    for (let i = 0; i < localStorage.length; i++){
+        const Edate =localStorage.DateandTime(i);
+        const Trigger = localStorage.Trigger(Edate);
+        const Resolution = localStorage.Resolution(Edate);
+
+        //display entries with innerHTML clean it up later TODO.
+        jrnlDisp.innerHTML += '${Edate}: ${Trigger}: ${Resolution}<br />';
+    }
+</script>
 </html>
