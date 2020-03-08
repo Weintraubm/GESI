@@ -49,20 +49,20 @@ TODO create a database to store entries locally or in a cloud.
             const Resolution = resolved.value;
             
             //put that in the terminal for debug
-            console.log(DateandTime);
+            console.log(Edate);
             console.log(Trigger);
             console.log(Resolution);
 
             // if the values exist save them in local memory.
             if (Edate && Trigger && Resolution) {
-                localStorage.setItem(DateandTime,Trigger,Resolution);
+                localStorage.setItem(Edate,Trigger,Resolution);
                 location.reload();
             }
         };
         
         //a for loop that populates, and prints the entries in local storage.
         for (let i = 0; i < localStorage.length; i++){
-            const Edate =localStorage.DateandTime(i);
+            const Edate =localStorage.Edate(i);
             const Trigger = localStorage.Trigger(Edate);
             const Resolution = localStorage.Resolution(Edate);
 
