@@ -32,43 +32,43 @@ TODO create a database to store entries locally or in a cloud.
     </div>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
-</body>
-<!--
-    create static objects to hold the entries?
--->
-<script type="text/javascript">
-    const Dtime = document.getElementById("Dtime");
-    const trigg = document.getElementById("trigg");
-    const resolved = document.getElementById("resolved");
-    const btnSave = document.getElementById("btnSave");
-    const jrnlDisp =doctument.getElementById("jrnlDisp");
+    <!--
+        create static objects to hold the entries?
+    -->
+    <script type="text/javascript">
+        const Dtime = document.getElementById("Dtime");
+        const trigg = document.getElementById("trigg");
+        const resolved = document.getElementById("resolved");
+        const btnSave = document.getElementById("btnSave");
+        const jrnlDisp =document.getElementById("jrnlDisp");
 
-    //button that creates the entry objects and displays them in the terminal.
-    btnSave.onclick = function() {
-        const DateandTime = Dtime.value;
-        const Trigger = trigg.value;
-        const Resolution = resolved.value;
+        //button that creates the entry objects and displays them in the terminal.
+        btnSave.onclick = function() {
+            const DateandTime = Dtime.value;
+            const Trigger = trigg.value;
+            const Resolution = resolved.value;
+            
+            //put that in the terminal for debug
+            console.log(DateandTime);
+            console.log(Trigger);
+            console.log(Resolution);
+
+            // if the values exist save them in local memory.
+            if (DateandTime && Trigger && Resolution) {
+                localStorage.setItem(DateandTime,Trigger,Resolution);
+                location.reload();
+            }
+        };
         
-        //put that in the terminal for debug
-        console.log(DateandTime);
-        console.log(Trigger);
-        console.log(Resolution);
+        //a for loop that populates, and prints the entries in local storage.
+        for (let i = 0; i < localStorage.length; i++){
+            const Edate =localStorage.DateandTime(i);
+            const Trigger = localStorage.Trigger(Edate);
+            const Resolution = localStorage.Resolution(Edate);
 
-        // if the values exist save them in local memory.
-        if (DateandTime && Trigger && Resolution) {
-            localStorage.setItem(DateandTime,Trigger,Resolution);
-            location.reload();
+            //display entries with innerHTML clean it up later TODO.
+            jrnlDisp.innerHTML += '${Edate}: ${Trigger}: ${Resolution}<br />';
         }
-    };
-    
-    //a for loop that populates, and prints the entries in local storage.
-    for (let i = 0; i < localStorage.length; i++){
-        const Edate =localStorage.DateandTime(i);
-        const Trigger = localStorage.Trigger(Edate);
-        const Resolution = localStorage.Resolution(Edate);
-
-        //display entries with innerHTML clean it up later TODO.
-        jrnlDisp.innerHTML += '${Edate}: ${Trigger}: ${Resolution}<br />';
-    }
 </script>
+</body>
 </html>
