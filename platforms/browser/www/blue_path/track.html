@@ -60,14 +60,14 @@ TODO create a database to store entries locally or in a cloud.
             }
         };
         
-        //a for loop that populates, and prints the entries in local storage.
+        //a for loop that populates, and prints the entries in local storage or ls.
         for (let i = 0; i < localStorage.length; i++){
-            const Edate =localStorage.Edate(i);
-            const Trigger = localStorage.Trigger(Edate);
-            const Resolution = localStorage.Resolution(Edate);
+            const Edatels =localStorage.Edate(i);
+            const Triggerls = localStorage.Trigger(Edate);
+            const Resolutionls = localStorage.Resolution(Edate);
 
             //display entries with innerHTML clean it up later TODO.
-            jrnlDisp.innerHTML += '${Edate}: ${Trigger}: ${Resolution}<br />';
+            jrnlDisp.innerHTML += '${Edatels}: ${Triggerls}: ${Resolutionls}<br />';
         }
 </script>
 </body>
