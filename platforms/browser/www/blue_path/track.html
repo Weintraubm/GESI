@@ -8,7 +8,7 @@
 <!--
 TODO create a database to store entries locally or in a cloud.
 -->
-<body>
+<div>
     <div class = "app" >
         <div>
             <fieldset>
@@ -60,7 +60,7 @@ TODO create a database to store entries locally or in a cloud.
         
         //a for loop that populates, and prints the entries in local storage or ls.
         for (let i = 0; i < localStorage.length; i++){
-            const Edate =localStorage.Edate(i);
+            const Edate =localStorage.getItem(Edate);
             const Triggerls = localStorage.getItem(Edate);
             const Resolutionls = localStorage.getItem(Edate);
 
@@ -68,5 +68,5 @@ TODO create a database to store entries locally or in a cloud.
             jrnlDisp.innerHTML += '${Edatels}: ${Triggerls}: ${Resolutionls}<br />';
         }
 </script>
-</body>
+</div>
 </html>
