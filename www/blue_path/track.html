@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="css/style.css"> 
+    <a href="proactive.html"><button class=".backbutton">BACK</button></a>
+</head>
+
+<!--
+TODO create a database to store entries locally or in a cloud.
+-->
+<div>
+    <div class = "app" >
+        <div>
+            <fieldset>
+                <legend>New Entry</legend>
+                <label for="Date">Date and Time </label>
+                <input type="text" id="Dtime" name="Date" placeholder="Day of event...">
+
+                <label for="Trig/Strs">Trigger or Stressor</label>
+                <input type="text" id="trigg" name="Trigger" placeholder="What Caused the Event...">
+
+                <label for="resolved">Resolution</label>
+                <input type="text" id="resolved" name="Resolution" placeholder="How did you overcome it...">
+                
+                <button type = "button" id=btnSave>Save Button</button>
+            </fieldset>
+            <fieldset>
+                <legend>Past Entries</legend>
+                <div id="jrnlDisp"></div>
+            </fieldset>
+        </div>
+    </div>
+    <!--
+        create constants to hold the entries?
+    -->
+    <script type="text/javascript">
+        const Dtime = document.getElementById("Dtime");
+        const trigg = document.getElementById("trigg");
+        const resolved = document.getElementById("resolved");
+        const btnSave = document.getElementById("btnSave");
+        const jrnlDisp =document.getElementById("jrnlDisp");
+
+        //button that creates the entry objects and displays them in the terminal.
+        btnSave.onclick = function() {
+            const Edate = Dtime.value;
+            const Trigger = trigg.value;
+            const Resolution = resolved.value;
+            
+            //put that in the terminal for debug
+            console.log(Edate);
+            console.log(Trigger);
+            console.log(Resolution);
+
+            // if the values exist save them in local memory.
+            if (Edate && Trigger && Resolution) {
+                localStorage.setItem(Edate,Trigger,Resolution);
+                location.reload();
+            }
+        };
+        
+        //a for loop that populates, and prints the entries in local storage or ls.
+        for (let i = 0; i < localStorage.length; i++){
+            const Edate =localStorage.getItem(Edate);
+            const Triggerls = localStorage.getItem(Edate);
+            const Resolutions = localStorage.getItem(Edate);
+
+            //display entries with innerHTML clean it up later TODO.
+            jrnlDisp.innerHTML += '${Edatels}: ${Triggerls}: ${Resolutionls}<br />';
+        }
+</script>
+</div>
+</html>
