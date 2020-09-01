@@ -44,8 +44,8 @@ input[type=submit] {
 
   .backbutton{
     background-color:transparent;
-    width:10%;
-    height:10%;
+    width:30%;
+    height:30%;
     font-size: 24px;
     box-shadow: 0 12px 16px black;
     color:black;
