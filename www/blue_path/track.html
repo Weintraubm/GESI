@@ -48,18 +48,21 @@ TODO create a database to store entries locally or in a cloud.
 
             // if the values exist save them in local memory.
             if (Edate && Trigger) {
-                localStorage.setItem(Edate,trigger);
+                localStorage.setItem(Dtime, Edate);
+                localStorage.setItem(trigg,Trigger);
                 location.reload();
             }
-        };
-        
-        //a for loop that populates, and prints the entries in local storage or ls.
-        for (let i = 0; i < localStorage.length; i++){
-            const Edate =localStorage.getItem(Edate);
-            const Trigger = localStorage.getItem(Trigger);
+        }; 
 
-            //display entries with innerHTML clean it up later TODO.
-            jrnlDisp.innerHTML += '${Edate}: ${Trigger}:';
+        for (let i = 0: i < localStorage.length; i++) {
+            const Dtime = localStorage.key(i)
+            const Edate = localStorage.getItem(Edate)
+            const Trigger = localStorage.getItem(Trigger)
+
+            jrnlDisp.innerHTML += '${key}: ${Edate}<br />';
+            jrnlDisp.innerHTML += '${key}: ${Trigger}<br />';
+
+
         }
 </script>
 </div>
