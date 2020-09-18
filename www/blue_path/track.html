@@ -18,9 +18,6 @@ TODO create a database to store entries locally or in a cloud.
 
                 <label for="Trig/Strs">Trigger or Stressor</label>
                 <input type="text" id="trigg" name="Trigger" placeholder="What Caused the Event...">
-
-                <label for="resolved">Resolution</label>
-                <input type="text" id="resolved" name="Resolution" placeholder="How did you overcome it...">
                 
                 <button type = "button" id=btnSave>Save Button</button>
             </fieldset>
@@ -36,7 +33,6 @@ TODO create a database to store entries locally or in a cloud.
     <script type="text/javascript">
         const Dtime = document.getElementById("Dtime");
         const trigg = document.getElementById("trigg");
-        const resolved = document.getElementById("resolved");
         const btnSave = document.getElementById("btnSave");
         const jrnlDisp =document.getElementById("jrnlDisp");
 
@@ -44,18 +40,15 @@ TODO create a database to store entries locally or in a cloud.
         btnSave.onclick = function() {
             const Edate = Dtime.value;
             const Trigger = trigg.value;
-            const Resolution = resolved.value;
             
             //put that in the terminal for debug
             console.log(Edate);
             console.log(Trigger);
-            console.log(Resolution);
+           
 
             // if the values exist save them in local memory.
-            if (Edate && Trigger && Resolution) {
-                localStorage.setItem(Edate);
-                localStorage.setItem(Trigger);
-                localStorage.setItem(Resolution);
+            if (Edate && Trigger) {
+                localStorage.setItem(Edate,trigger);
                 location.reload();
             }
         };
@@ -64,10 +57,9 @@ TODO create a database to store entries locally or in a cloud.
         for (let i = 0; i < localStorage.length; i++){
             const Edate =localStorage.getItem(Edate);
             const Trigger = localStorage.getItem(Trigger);
-            const Resolution = localStorage.getItem(Resolution);
 
             //display entries with innerHTML clean it up later TODO.
-            jrnlDisp.innerHTML += '${Edate}: ${Trigger}: ${Resolution}:';
+            jrnlDisp.innerHTML += '${Edate}: ${Trigger}:';
         }
 </script>
 </div>

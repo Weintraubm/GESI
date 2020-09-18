@@ -53,7 +53,9 @@ TODO create a database to store entries locally or in a cloud.
 
             // if the values exist save them in local memory.
             if (Edate && Trigger && Resolution) {
-                localStorage.setItem(Edate,Trigger,Resolution);
+                localStorage.setItem(Edate);
+                localStorage.setItem(Trigger);
+                localStorage.setItem(Resolution);
                 location.reload();
             }
         };
@@ -61,11 +63,11 @@ TODO create a database to store entries locally or in a cloud.
         //a for loop that populates, and prints the entries in local storage or ls.
         for (let i = 0; i < localStorage.length; i++){
             const Edate =localStorage.getItem(Edate);
-            const Triggerls = localStorage.getItem(Edate);
-            const Resolutions = localStorage.getItem(Edate);
+            const Trigger = localStorage.getItem(Trigger);
+            const Resolution = localStorage.getItem(Resolution);
 
             //display entries with innerHTML clean it up later TODO.
-            jrnlDisp.innerHTML += '${Edatels}: ${Triggerls}: ${Resolutionls}<br />';
+            jrnlDisp.innerHTML += '${Edate}: ${Trigger}: ${Resolution}:';
         }
 </script>
 </div>
