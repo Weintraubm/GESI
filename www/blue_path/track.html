@@ -48,19 +48,17 @@ TODO create a database to store entries locally or in a cloud.
 
             // if the values exist save them in local memory.
             if (Edate && Trigger) {
-                localStorage.setItem(Dtime, Edate);
-                localStorage.setItem(trigg,Trigger);
+                localStorage.setItem( "Date", Edate);
+                localStorage.setItem( "Event Trigger",Trigger);
                 location.reload();
             }
         }; 
 
         for (let i = 0; i < localStorage.length; i++) {
-            const Dtime = localStorage.key(i)
-            const Edate = localStorage.getItem(Edate)
-            const Trigger = localStorage.getItem(Trigger)
-
-            jrnlDisp.innerHTML += '${key}: ${Edate}<br />';
-            jrnlDisp.innerHTML += '${key}: ${Trigger}<br />';
+            const key = localStorage.key(i)
+            const value = localStorage.getItem(key)
+          
+            jrnlDisp.innerHTML += `${key}: ${value}<br />`;
 
 
         }
