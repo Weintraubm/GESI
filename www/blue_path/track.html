@@ -13,24 +13,53 @@ TODO create a database to store entries locally or in a cloud.
         <div>
             <fieldset>
                 <legend>New Entry</legend>
-                <label for="Date">Date and Time </label>
-                <input type="text" id="Dtime" name="Date" placeholder="Day of event...">
 
                 <label for="Trig/Strs">Trigger or Stressor</label>
-                <input type="text" id="trigg" name="Trigger" placeholder="What Caused the Event...">
+                <input type="text" id="trigg" name="Trigger" placeholder="Date -##/##: What caused the Event? ">
                 
-                <button type = "button" id=btnSave>Save Button</button>
+                <button type = "button" id=btnSave onclick="save();">Save Button</button>
             </fieldset>
             <fieldset>
                 <legend>Past Entries</legend>
-                <div id="jrnlDisp"></div>
+                <div id="output"> Entries Go Here</div>
             </fieldset>
+                <button type = "button" id=btnDelete onclick="deleteRecords();">Delete Records</button>
         </div>
     </div>
     <!--
         create constants to hold the entries?
     -->
     <script type="text/javascript">
+         
+       function save(){
+	        //get data from input boxes 
+	        var newTrigger = ' '+document.getElementById('trigg').value
+	
+	        //if theres no data start an empty array
+	        if(localStorage.getItem('records') == null){
+	            localStorage.setItem('records', '[]');
+            }    
+
+	        //get old trigger and add the new trigger
+            var oldTrigger = JSON.parse(localStorage.getItem('records'));
+            oldTrigger.push(newTrigger);
+	
+            //save old trigger and new trigger to local storage
+            localStorage.setItem('records', JSON.stringify(oldTrigger));
+            
+            //show it off in the field above
+            if (localStorage.getItem('records') != null){
+                document.getElementById('output').innerHTML = JSON.parse(localStorage.getItem('records'));
+            }
+        }
+        function deleteRecords(){
+            localStorage.setItem(JSON.stringify(records));
+        }
+       
+       
+        /*let records = JSON.parse(localStorage.getItem("records"));
+	    if (records == null) records = []; 
+        // empty array if nothing in storage
         const Dtime = document.getElementById("Dtime");
         const trigg = document.getElementById("trigg");
         const btnSave = document.getElementById("btnSave");
@@ -59,9 +88,10 @@ TODO create a database to store entries locally or in a cloud.
             const value = localStorage.getItem(key)
           
             jrnlDisp.innerHTML += `${key}: ${value}<br />`;
-
-
-        }
+            newEntry = { date: value, trigger: 'value' }
+            records.push(newEntry)
+        
+        }*/
 </script>
 </div>
 </html>
