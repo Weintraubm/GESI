@@ -9,6 +9,6 @@ to prototype application
 https://gitpod.io/#https://github.com/Weintraubm/GESI
 
 then in a terminal 
-** npm install -g cordova**
+ **npm install -g cordova**
 
 **run cordova**
