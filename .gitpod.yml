@@ -1,9 +1,7 @@
 tasks:
   - init:  npm install 
-    command: >
-    npm i -g cordova &&
-    cordova run
-
+  - command: npm i -g cordova && gp sync-done mything
+  - command: gp sync-await mything && cordova run
 ports:
   - port: 8000
     onOpen: open-browser
