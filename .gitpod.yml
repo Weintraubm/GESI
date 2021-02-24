@@ -1,7 +1,7 @@
 tasks:
   - init:  npm install 
     command: npm i -g cordova
-    command: cordova run
+             cordova run
 
 ports:
   - port: 8000
